@@ -39,20 +39,7 @@
 
 #ifndef _CCRTOS_H
 #define _CCRTOS_H
-#if DOXYGEN_DOC_DEFINED
-#include "OsConfig.h.example"
-#else
 #include "OsConfig.h"
-#endif
-
-//! \addtogroup CooCox_CoOS
-//! @{
-//! \addtogroup CooCox_CoOS_Enum Enumeration    
-//! @{
-
-//! \addtogroup CooCox_CoOS_Type Type Define   
-//! @{
-
 /*---------------------------- Type Define  ----------------------------------*/
 typedef signed   char      S8;              
 typedef unsigned char      U8;	
@@ -75,10 +62,8 @@ typedef U8                 StatusType;
 typedef U16                OS_VER;
 typedef void               (*FUNCPtr)(void*);
 typedef void               (*vFUNCPtr)(void);
-//! @}
 
-//! \addtogroup CooCox_CoOS_Constant Constant Define   
-//! @{
+
 /*---------------------------- Constant Define -------------------------------*/
 #ifndef Co_NULL
 #define Co_NULL          ((void *)0)
@@ -91,10 +76,7 @@ typedef void               (*vFUNCPtr)(void);
 #ifndef Co_TRUE
 #define Co_TRUE          (1)
 #endif
-//! @}
 
-//! \addtogroup CooCox_CoOS_Error Error Codes 
-//! @{
 
 /*---------------------------- Error Codes   ---------------------------------*/
 #define E_CREATE_FAIL         (StatusType)-1
@@ -121,36 +103,24 @@ typedef void               (*vFUNCPtr)(void);
 #define E_PROTECTED_TASK      (StatusType)20 
 #define E_OS_IN_LOCK          (StatusType)21												
 
-//! @}
 
-//! \addtogroup CooCox_CoOS_Wait Wait Opreation type
-//! @{
 /*---------------------------- Wait Opreation type  --------------------------*/
 #define OPT_WAIT_ALL          0         /*!< Wait for all flags.              */
 #define OPT_WAIT_ANY          1         /*!< Wait for any one of flags.       */
 #define OPT_WAIT_ONE          2         /*!< Waot for one flag.               */	
 
-//! @}
 
-//! \addtogroup CooCox_CoOS_Delete Delete Opreation type
-//! @{
 /*---------------------------- Delete Opreation type  ------------------------*/
 #define OPT_DEL_NO_PEND       0         /*!< Delete when no task waitting for */
 #define OPT_DEL_ANYWAY        1         /*!< Delete always.                   */
-//! @}
 
-//! \addtogroup CooCox_CoOS_Timer Timer type
-//! @{
 
 /*---------------------------- Timer Types  ----------------------------------*/
 #if CFG_TMR_EN >0
 #define TMR_TYPE_ONE_SHOT     0         /*!< Timer counter type: One-shot     */
 #define TMR_TYPE_PERIODIC     1         /*!< Timer counter type: Periodic     */
 #endif
-//! @}
 
-//! \addtogroup CooCox_CoOS_Event Event Control
-//! @{
 
 /*---------------------------- Event Control ---------------------------------*/
 #if CFG_EVENT_EN >0
@@ -158,11 +128,7 @@ typedef void               (*vFUNCPtr)(void);
 #define EVENT_SORT_TYPE_PRIO  (U8)0x02  /*!< Insert a event by prio           */
 #endif
 
-//! @}
-//! @}
 
-//! \addtogroup CooCox_CoOS_Exported_APIs  API Refrence
-//! @{
 /*---------------------------- Function declare-------------------------------*/
 
 /* Implement in file "core.c"      */
@@ -275,6 +241,5 @@ extern void        CoTickToTime(U32 ticks,U8* hour,U8* minute,U8* sec,U16* mills
 extern void        CoIdleTask(void* pdata);
 extern void        CoStkOverflowHook(OS_TID taskID);
 
-//! @}
-//! @}
+
 #endif
